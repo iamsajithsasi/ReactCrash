@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import IncrementingOutside from "./IncrementingOutside"
 
 const StateSection = () => {
   const [count, setCount] = useState(0);
@@ -13,6 +14,7 @@ const StateSection = () => {
       <p onClick={() => setCounts((val1) => ({...val1, count1: val1.count1 + 1}) )}>Click me to increment count1</p>
       <p>counts {count1}</p>
       <p onClick={() => console.log('count 2 is clicked')}>count2 {count2}</p>
+      <IncrementingOutside callIncrementFn ={() => setCount( (val) => val + 1)} />
     </div>
   );
 };

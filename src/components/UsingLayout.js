@@ -1,13 +1,20 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 
 export default function UsingLayout() {
+
+    var [state, setstate] = useState([])
+
     useLayoutEffect(() => {
-        console.log(divBox.current.getBoundingClientRect())
-    }, [])
+        let x = divBox.current.getBoundingClientRect()
+        setstate((c) => c = JSON.stringify(x));
+    }, [state])
     const divBox = useRef()
     return (
-        <div ref={divBox}>
-            Same as use effect but after all dom mutation
-        </div>
+        <>
+            <div ref={divBox}>
+                Same as use effect but after all dom mutation
+            </div>
+            <p>{state}</p>
+        </>
     )
 }
